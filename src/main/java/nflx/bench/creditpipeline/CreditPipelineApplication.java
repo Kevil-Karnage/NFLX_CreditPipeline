@@ -1,4 +1,4 @@
-package nflx.bench.CreditPipeline;
+package nflx.bench.creditpipeline;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
