@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: CreditPipeline
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: credit
+      username: admin
+      password: admin
+      authentication-database: admin
