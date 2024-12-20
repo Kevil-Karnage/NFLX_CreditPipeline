@@ -1,15 +1,18 @@
 package nflx.bench.creditpipeline.controller;
 
 import nflx.bench.creditpipeline.dto.Task;
+import nflx.bench.creditpipeline.dto.TaskResponse;
 import nflx.bench.creditpipeline.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/tasks", produces = "application/json")
+@RequestMapping(value = "/tasks", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TaskController {
 
     @Autowired
@@ -20,7 +23,7 @@ public class TaskController {
      * @return List<Task>
      */
     @GetMapping
-    public List<Task> getTasks() {
+    public Flux<Task> getTasks() {
         return taskService.getAllTasks();
     }
 
@@ -30,7 +33,7 @@ public class TaskController {
      * @return Task
      */
     @PostMapping
-    public Task createTask (@RequestBody Task task) {
+    public Mono<Task> createTask (@RequestBody Task task) {
         return taskService.createTask(task);
     }
 
@@ -40,7 +43,7 @@ public class TaskController {
      * @return Mono<Task>
      */
     @GetMapping("/{id}")
-    public Task getTaskById(@PathVariable("id") UUID id) {
+    public Mono<Task> getTaskById(@PathVariable("id") UUID id) {
         return taskService.getTaskById(id);
     }
 
@@ -48,10 +51,10 @@ public class TaskController {
      * Удаление задачи по id
      * @param id
      * @return TaskResponse
-     *//*
+     */
     @DeleteMapping("/{id}")
     public TaskResponse deleteTaskById(@PathVariable("id") UUID id) {
         taskService.deleteById(id);
         return TaskResponse.getSuccessResponse();
-    }*/
+    }
 }

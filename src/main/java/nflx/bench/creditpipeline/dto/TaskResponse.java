@@ -8,8 +8,8 @@ import lombok.Data;
 public class TaskResponse {
     private int code;
     private String message;
-/*
+
     public static TaskResponse getSuccessResponse() {
         return new TaskResponse(200, "OK");
-    }*/
+    }
 }

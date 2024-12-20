@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @Data
 @Document
+@AllArgsConstructor
 public class Task {
     @Id
     private UUID id;
