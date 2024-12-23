@@ -8,9 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration .class})
 @EnableMongoRepositories
 public class CreditPipelineApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(CreditPipelineApplication.class, args);
 	}
-
 }
