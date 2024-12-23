@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: CreditPipeline
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: credit
+      username: admin
+      password: admin
+      authentication-database: admin
+
+  kafka:
+    bootstrap-servers: host.docker.internal:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  topics:
+    test-topic: topic1
